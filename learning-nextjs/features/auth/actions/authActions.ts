@@ -1,5 +1,5 @@
 "use server";
-import { mockLogin } from "../services/authServices";
+import { mockLogin, mockRegistration } from "../services/authServices";
 import { cookies } from "next/headers";
 import { User } from "../types/auth";
 
@@ -7,6 +7,11 @@ type LoginState = {
     error: string | null;
     success: boolean;
     user: User | null;
+};
+
+type RegisterState = {
+    error: string | null;
+    success: boolean;
 };
 
 export async function loginAction(
@@ -36,5 +41,32 @@ export async function loginAction(
     } catch (error) {
         console.error(error);
         return { error: "Lỗi khi đăng nhập", success: false, user: null };
+    }
+}
+
+export async function registerAction(
+    prevState: RegisterState,
+    formData: FormData
+): Promise<RegisterState> {
+    console.log("registerAction");
+    const username = formData.get("username") as string;
+    const password = formData.get("password") as string;
+    const email = formData.get("email") as string;
+
+    if (!username || !password || !email) {
+        return { error: "Vui lòng nhập đầy đủ thông tin", success: false };
+    }
+
+    try {
+        const response = await mockRegistration({ username, password, email });
+        if (response.success) {
+            console.log("Đăng ký thành công");
+            return { error: null, success: true };
+        } else {
+            return { error: response.message, success: false };
+        }
+    } catch (error) {
+        console.error(error);
+        return { error: "Lỗi khi đăng ký", success: false };
     }
 }

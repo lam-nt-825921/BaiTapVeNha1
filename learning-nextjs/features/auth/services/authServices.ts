@@ -1,5 +1,5 @@
 "use server";
-import { LoginData } from "../types/auth";
+import { LoginData, RegistrationData } from "../types/auth";
 import { User } from "../types/auth";
 import { LoginResponse } from "../types/auth";
 
@@ -32,4 +32,12 @@ export async function mockLogin(loginData: LoginData) {
         token: "mock-token",
     };
     return loginResponse;
+}
+
+export async function mockRegistration(registrationData: RegistrationData) {
+    console.log("send request to server (mockRegistration)", registrationData);
+    return {
+        success: true,
+        message: "Registration successful",
+    };
 }

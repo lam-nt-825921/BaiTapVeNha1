@@ -43,7 +43,7 @@ export default function LoginPage() {
                         {isPending ? "Đang đăng nhập..." : "Login"}
                     </button>
                 </form>
-                <Link href="/registration">Registration</Link>
+                <Link href="/register">Registration</Link>
             </div>
         </div>
     );
