@@ -4,6 +4,7 @@ import { useActionState, useEffect } from "react";
 import { useRouter } from "next/navigation";
 import { loginAction } from "@/features/auth/actions/authActions";
 import { useUserStore } from "@/stores/userStore";
+import { Button, Input } from "@/components/ui";
 
 const initialState = { error: null, success: false, user: null };
 
@@ -20,30 +21,67 @@ export default function LoginPage() {
     }, [state, setUser, router]);
 
     return (
-        <div>
-            <h1>Login</h1>
-            <div>
-                <form action={formAction}>
-                    <label htmlFor="username">Username</label>
-                    <input 
-                        type="text" 
-                        name="username"
-                        placeholder="Username" 
-                        id="username" 
-                    />
-                    <label htmlFor="password">Password</label>
-                    <input 
-                        type="password" 
-                        name="password"
-                        placeholder="Password" 
-                        id="password" 
-                    />
-                    {state.error && <p style={{ color: "red" }}>{state.error}</p>}
-                    <button type="submit" disabled={isPending}>
-                        {isPending ? "Đang đăng nhập..." : "Login"}
-                    </button>
-                </form>
-                <Link href="/register">Registration</Link>
+        <div className="rounded-xl bg-white p-8 shadow-xl dark:bg-gray-900 sm:p-10">
+            {/* Header */}
+            <div className="mb-8 text-center">
+                <h1 className="text-3xl font-bold text-gray-900 dark:text-white">
+                    Welcome Back
+                </h1>
+                <p className="mt-2 text-sm text-gray-600 dark:text-gray-400">
+                    Sign in to your account to continue
+                </p>
+            </div>
+
+            {/* Form */}
+            <form action={formAction} className="space-y-6">
+                <Input
+                    name="username"
+                    label="Username"
+                    placeholder="Enter your username"
+                    required
+                    autoComplete="username"
+                    disabled={isPending}
+                />
+
+                <Input
+                    name="password"
+                    type="password"
+                    label="Password"
+                    placeholder="Enter your password"
+                    required
+                    autoComplete="current-password"
+                    disabled={isPending}
+                />
+
+                {state.error && (
+                    <div className="rounded-lg bg-red-50 p-3 text-sm text-red-600 dark:bg-red-900/20 dark:text-red-400">
+                        {state.error}
+                    </div>
+                )}
+
+                <Button
+                    type="submit"
+                    variant="primary"
+                    size="lg"
+                    className="w-full"
+                    isLoading={isPending}
+                    disabled={isPending}
+                >
+                    Sign In
+                </Button>
+            </form>
+
+            {/* Footer */}
+            <div className="mt-6 text-center text-sm">
+                <span className="text-gray-600 dark:text-gray-400">
+                    Don&apos;t have an account?{" "}
+                </span>
+                <Link
+                    href="/register"
+                    className="font-medium text-blue-600 transition-colors hover:text-blue-700 dark:text-blue-400 dark:hover:text-blue-300"
+                >
+                    Sign up
+                </Link>
             </div>
         </div>
     );

@@ -1,7 +1,7 @@
 "use server";
 import { mockLogin, mockRegistration } from "../services/authServices";
 import { cookies } from "next/headers";
-import { User } from "../types/auth";
+import { User } from "@/types/types";
 
 type LoginState = {
     error: string | null;

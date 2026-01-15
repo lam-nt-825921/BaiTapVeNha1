@@ -1,6 +1,6 @@
 "use server";
 import { LoginData, RegistrationData } from "../types/auth";
-import { User } from "../types/auth";
+import { User } from "@/types/types";
 import { LoginResponse } from "../types/auth";
 
 export async function mockLogin(loginData: LoginData) {
@@ -8,7 +8,7 @@ export async function mockLogin(loginData: LoginData) {
         id: "1",
         name: "John Doe",
         username: loginData.username,
-        email: "test@test.com",
+        email: "Eliseo@gardner.biz",
         address: {
             street: "123 Main St",
             suite: "Apt 1",

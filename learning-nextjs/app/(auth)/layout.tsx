@@ -1,11 +1,9 @@
-export default function Layout({ children }: { children: React.ReactNode }) {
+export default function AuthLayout({ children }: { children: React.ReactNode }) {
     return (
-        <html>
-            <body className="flex min-h-screen items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-                <main className="flex min-h-screen w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-                    {children}
-                </main>
-            </body>
-        </html>
-    )
+        <div className="flex min-h-screen items-center justify-center bg-gradient-to-br from-gray-50 to-gray-100 px-4 py-12 dark:from-gray-900 dark:to-gray-950 sm:px-6 lg:px-8">
+            <div className="w-full max-w-md">
+                {children}
+            </div>
+        </div>
+    );
 }
