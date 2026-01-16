@@ -2,7 +2,7 @@
 
 import { useState, useEffect, useCallback, Profiler } from "react";
 import { PostList, PostSearch } from "@/features/posts/components";
-import { getMockPosts } from "@/features/posts/services/postServices";
+import { getPosts } from "@/features/posts/services/postServices";
 import { processPostList } from "@/features/posts/utils/postUtils";
 import { PostListQueryParams, PostListOptions } from "@/features/posts/types/type";
 import { Post } from "@/types/types";
@@ -21,7 +21,7 @@ export default function PostsPage() {
     const fetchPosts = useCallback(async (params: PostListQueryParams) => {
         setLoading(true);
         try {
-            const data = await getMockPosts(params);
+            const data = await getPosts(params);
             setPosts(data);
         } catch (error) {
             console.error("Error fetching posts:", error);

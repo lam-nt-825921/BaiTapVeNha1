@@ -10,3 +10,14 @@ export type PostListOptions = {
 export type PostListQueryParams = {
     query?: string;
 }
+
+export type CreatePostRequest = {
+    title: string;
+    body: string;
+}
+
+export type UpdatePostRequest = {
+    id: string;
+    title?: string;
+    body?: string;
+}
