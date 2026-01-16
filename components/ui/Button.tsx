@@ -8,13 +8,13 @@ interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
 
 const Button = forwardRef<HTMLButtonElement, ButtonProps>(
     ({ className = "", variant = "primary", size = "md", isLoading, children, disabled, ...props }, ref) => {
-        const baseStyles = "inline-flex items-center justify-center rounded-lg font-medium transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-600 disabled:opacity-50 disabled:cursor-not-allowed";
+        const baseStyles = "inline-flex items-center justify-center rounded-lg font-medium cursor-pointer focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#3B82F6] disabled:opacity-50 disabled:cursor-not-allowed";
         
         const variants = {
-            primary: "bg-blue-600 text-white hover:bg-blue-700 active:bg-blue-800",
-            secondary: "bg-gray-100 text-gray-900 hover:bg-gray-200 dark:bg-gray-800 dark:text-gray-100 dark:hover:bg-gray-700",
-            outline: "border-2 border-gray-300 bg-transparent text-gray-700 hover:bg-gray-50 dark:border-gray-600 dark:text-gray-300 dark:hover:bg-gray-800",
-            ghost: "bg-transparent text-gray-700 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-gray-800",
+            primary: "bg-[#3B82F6] text-white hover:bg-[#2563EB] active:bg-[#1D4ED8] shadow-sm hover:shadow-md transition-all duration-200",
+            secondary: "bg-[#F8FAFC] text-[#1E293B] border border-[#E2E8F0] hover:bg-[#F1F5F9] hover:border-[#CBD5E1] dark:bg-slate-800 dark:text-slate-100 dark:border-slate-700 dark:hover:bg-slate-700 transition-all duration-200",
+            outline: "border-2 border-[#E2E8F0] bg-transparent text-[#1E293B] hover:bg-[#F8FAFC] hover:border-[#3B82F6] dark:border-slate-600 dark:text-slate-300 dark:hover:bg-slate-800 dark:hover:border-blue-500 transition-all duration-200",
+            ghost: "bg-transparent text-[#1E293B] hover:bg-[#F8FAFC] dark:text-slate-300 dark:hover:bg-slate-800 transition-all duration-200",
         };
 
         const sizes = {

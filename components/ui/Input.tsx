@@ -15,7 +15,7 @@ const Input = forwardRef<HTMLInputElement, InputProps>(
                 {label && (
                     <label 
                         htmlFor={inputId}
-                        className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1.5"
+                        className="block text-sm font-medium text-[#1E293B] dark:text-slate-300 mb-1.5"
                     >
                         {label}
                     </label>
@@ -24,16 +24,16 @@ const Input = forwardRef<HTMLInputElement, InputProps>(
                     ref={ref}
                     id={inputId}
                     className={`
-                        block w-full rounded-lg border px-4 py-2.5 text-gray-900
-                        placeholder:text-gray-400
-                        focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent
-                        transition-colors
-                        disabled:bg-gray-100 disabled:cursor-not-allowed disabled:text-gray-500
-                        dark:bg-gray-800 dark:text-white dark:border-gray-700
-                        dark:placeholder:text-gray-500 dark:focus:ring-blue-400
+                        block w-full rounded-lg border px-4 h-11 text-[#1E293B]
+                        bg-white placeholder:text-slate-400
+                        focus:outline-none focus:ring-2 focus:ring-[#3B82F6] focus:border-transparent
+                        transition-all duration-200
+                        disabled:bg-[#F8FAFC] disabled:cursor-not-allowed disabled:text-slate-500
+                        dark:bg-slate-800 dark:text-white dark:border-slate-700
+                        dark:placeholder:text-slate-500 dark:focus:ring-blue-400
                         ${error 
-                            ? "border-red-300 focus:ring-red-500 dark:border-red-700" 
-                            : "border-gray-300 dark:border-gray-700"
+                            ? "border-red-400 focus:ring-red-500 dark:border-red-600" 
+                            : "border-[#E2E8F0] dark:border-slate-700"
                         }
                         ${className}
                     `}

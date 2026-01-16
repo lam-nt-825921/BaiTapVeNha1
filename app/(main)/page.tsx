@@ -9,9 +9,9 @@ export default function Page() {
     const isHydrated = useIsHydrated();
 
     return (
-        <div className="min-h-screen bg-gray-50 dark:bg-gray-950">
+        <div className="min-h-screen bg-slate-100 dark:bg-slate-950">
             {/* Hero Section */}
-            <section className="mx-auto max-w-7xl px-4 py-20 sm:px-6 lg:px-8">
+            <section className="mx-auto w-full max-w-[1600px] px-4 py-20 sm:px-5 lg:px-6 xl:px-8 2xl:px-12">
                 <div className="text-center">
                     <h1 className="text-4xl font-bold tracking-tight text-gray-900 dark:text-white sm:text-5xl md:text-6xl">
                         Welcome to{" "}
@@ -43,8 +43,8 @@ export default function Page() {
             </section>
 
             {/* Features Section */}
-            <section className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8">
-                <div className="grid grid-cols-1 gap-8 md:grid-cols-3">
+            <section className="mx-auto w-full max-w-[1600px] px-4 py-16 sm:px-5 lg:px-6 xl:px-8 2xl:px-12">
+                <div className="flex flex-wrap justify-center gap-8">
                     <FeatureCard
                         svg={
                             <svg className="h-6 w-6" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor">

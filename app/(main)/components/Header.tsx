@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { useUserStore, useIsHydrated } from "@/stores/userStore";
 import { useLogout } from "@/features/auth/hooks/useLogout";
+import UserMenu from "@/components/ui/UserMenu";
 
 export default function Header() {
     const user = useUserStore((state) => state.user);
@@ -10,62 +11,41 @@ export default function Header() {
     const { handleLogout, isLoggingOut } = useLogout();
 
     return (
-        <header className="sticky top-0 z-50 w-full border-b border-gray-200 bg-white/80 backdrop-blur-md dark:border-gray-800 dark:bg-gray-900/80">
-            <div className="mx-auto flex max-w-7xl items-center justify-between px-4 py-4 sm:px-6 lg:px-8">
+        <header className="sticky top-0 z-50 w-full border-b border-slate-200 bg-white/80 backdrop-blur-md dark:border-slate-800 dark:bg-slate-900/80">
+            <div className="mx-auto flex w-full items-center justify-between px-4 py-3 sm:px-5 lg:px-6 xl:px-8 2xl:px-12">
                 <Link 
                     href="/" 
-                    className="flex items-center space-x-2 transition-opacity hover:opacity-80"
+                    className="flex items-center space-x-2 transition-opacity hover:opacity-80 cursor-pointer"
                 >
-                    <h1 className="text-xl font-bold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
+                    <h1 className="text-xl font-bold bg-gradient-to-r from-[#3B82F6] to-[#8B5CF6] bg-clip-text text-transparent">
                         MyApp
                     </h1>
                 </Link>
 
-                <nav className="hidden items-center space-x-6 md:flex">
-                    <Link 
-                        href="/posts" 
-                        className="text-sm font-medium text-gray-700 transition-colors hover:text-gray-900 dark:text-gray-300 dark:hover:text-white"
-                    >
-                        Posts
-                    </Link>
-                    <Link 
-                        href="/" 
-                        className="text-sm font-medium text-gray-700 transition-colors hover:text-gray-900 dark:text-gray-300 dark:hover:text-white"
-                    >
-                        Home
-                    </Link>
-                </nav>
-
                 <div className="flex items-center space-x-4">
                     {!isHydrated ? (
-                        <span className="text-sm text-gray-500 dark:text-gray-400">Loading...</span>
+                        <div className="flex items-center space-x-2">
+                            <div className="w-8 h-8 rounded-full bg-slate-200 animate-pulse dark:bg-slate-700" />
+                            <span className="text-sm text-slate-500 dark:text-slate-400">Loading...</span>
+                        </div>
                     ) : user ? (
-                        <>
-                            <Link 
-                                href="/profile"
-                                className="text-sm font-medium text-gray-700 transition-colors hover:text-gray-900 dark:text-gray-300 dark:hover:text-white"
-                            >
-                                {user?.name}
-                            </Link>
-                            <button 
-                                onClick={handleLogout} 
-                                disabled={isLoggingOut}
-                                className="rounded-lg bg-gray-100 px-4 py-2 text-sm font-medium text-gray-700 transition-colors hover:bg-gray-200 disabled:opacity-50 disabled:cursor-not-allowed dark:bg-gray-800 dark:text-gray-300 dark:hover:bg-gray-700"
-                            >
-                                {isLoggingOut ? "Logging out..." : "Logout"}
-                            </button>
-                        </>
+                        <UserMenu
+                            userName={user.name}
+                            userEmail={user.email}
+                            onLogoutClick={handleLogout}
+                            isLoggingOut={isLoggingOut}
+                        />
                     ) : (
                         <>
                             <Link 
                                 href="/login"
-                                className="text-sm font-medium text-gray-700 transition-colors hover:text-gray-900 dark:text-gray-300 dark:hover:text-white"
+                                className="text-sm font-medium text-slate-700 transition-colors hover:text-slate-900 dark:text-slate-300 dark:hover:text-white"
                             >
                                 Login
                             </Link>
                             <Link
                                 href="/register"
-                                className="rounded-lg bg-blue-600 px-4 py-2 text-sm font-medium text-white transition-colors hover:bg-blue-700"
+                                className="rounded-lg bg-[#3B82F6] px-4 py-2 text-sm font-medium text-white transition-colors hover:bg-[#2563EB] shadow-sm hover:shadow-md"
                             >
                                 Sign Up
                             </Link>

@@ -23,19 +23,25 @@ export default function FeatureCard({
     return (
         <Link
             href={link}
-            className="block rounded-xl bg-white p-6 shadow-sm transition-shadow hover:shadow-md dark:bg-gray-900"
+            className="group relative block w-full max-w-sm rounded-xl bg-white p-8 shadow-[0_2px_10px_rgba(0,0,0,0.08)] transition-all duration-300 hover:shadow-[0_8px_25px_rgba(0,0,0,0.15)] hover:-translate-y-1 cursor-pointer dark:bg-slate-800 dark:shadow-[0_2px_10px_rgba(0,0,0,0.3)] overflow-hidden"
         >
-            <div className={`flex h-10 w-10 items-center justify-center rounded-lg ${iconBgColor}`}>
-                <div className={iconTextColor}>
-                    {svg}
+            {/* Gradient Background - subtle */}
+            <div className="absolute inset-0 bg-gradient-to-br from-white via-white to-slate-50 opacity-50 dark:from-slate-800 dark:via-slate-800 dark:to-slate-900 -z-10" />
+            
+            {/* Content */}
+            <div className="relative z-10">
+                <div className={`flex h-12 w-12 items-center justify-center rounded-xl ${iconBgColor} transition-transform duration-300 group-hover:scale-110`}>
+                    <div className={iconTextColor}>
+                        {svg}
+                    </div>
                 </div>
+                <h3 className="mt-6 text-xl font-semibold text-slate-900 transition-colors duration-300 group-hover:text-[#3B82F6] dark:text-white dark:group-hover:text-blue-400">
+                    {title}
+                </h3>
+                <p className="mt-3 text-sm leading-relaxed text-slate-600 dark:text-slate-400">
+                    {description}
+                </p>
             </div>
-            <h3 className="mt-4 text-lg font-semibold text-gray-900 dark:text-white">
-                {title}
-            </h3>
-            <p className="mt-2 text-sm text-gray-600 dark:text-gray-400">
-                {description}
-            </p>
         </Link>
     );
 }

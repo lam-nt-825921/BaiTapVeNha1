@@ -79,13 +79,13 @@ export default function PostsPage() {
                 });
             }}
         >
-            <div className="mx-auto max-w-7xl px-4 py-8 sm:px-6 lg:px-8">
+            <div className="mx-auto w-full max-w-[1600px] px-4 py-8 sm:px-5 lg:px-6 xl:px-8 2xl:px-12 bg-slate-100 min-h-screen">
                 {/* Page Header */}
                 <div className="mb-8">
-                    <h1 className="text-3xl font-bold text-gray-900 dark:text-white">
+                    <h1 className="text-3xl font-bold text-[#1E293B] dark:text-white">
                         All Posts
                     </h1>
-                    <p className="mt-2 text-gray-600 dark:text-gray-400">
+                    <p className="mt-2 text-slate-600 dark:text-slate-400">
                         Discover and explore posts from our community
                     </p>
                 </div>
@@ -103,7 +103,7 @@ export default function PostsPage() {
                     <div className="flex items-center justify-center py-20">
                         <div className="text-center">
                             <svg 
-                                className="mx-auto h-12 w-12 animate-spin text-blue-600" 
+                                className="mx-auto h-12 w-12 animate-spin text-[#3B82F6]" 
                                 xmlns="http://www.w3.org/2000/svg" 
                                 fill="none" 
                                 viewBox="0 0 24 24"
@@ -122,15 +122,15 @@ export default function PostsPage() {
                                     d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"
                                 />
                             </svg>
-                            <p className="mt-4 text-gray-600 dark:text-gray-400">Loading posts...</p>
+                            <p className="mt-4 text-slate-600 dark:text-slate-400">Loading posts...</p>
                         </div>
                     </div>
                 ) : (
                     <>
                         {/* Results Count */}
                         {displayPosts.length > 0 && (
-                            <div className="mb-6 text-sm text-gray-600 dark:text-gray-400">
-                                Showing <span className="font-semibold text-gray-900 dark:text-white">{displayPosts.length}</span> post{displayPosts.length !== 1 ? 's' : ''}
+                            <div className="mb-6 text-sm text-slate-600 dark:text-slate-400">
+                                Showing <span className="font-semibold text-[#1E293B] dark:text-white">{displayPosts.length}</span> post{displayPosts.length !== 1 ? 's' : ''}
                             </div>
                         )}
 

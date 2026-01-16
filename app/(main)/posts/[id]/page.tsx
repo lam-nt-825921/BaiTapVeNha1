@@ -39,7 +39,7 @@ export default function PostDetailPage({ params }: PostDetailPageProps) {
     // Loading state
     if (loading) {
         return (
-            <div className="mx-auto max-w-4xl px-4 py-12 sm:px-6 lg:px-8">
+            <div className="mx-auto w-full max-w-4xl px-4 py-12 sm:px-5 lg:px-6 xl:px-8">
                 <div className="flex items-center justify-center py-20">
                     <div className="text-center">
                         <svg 
@@ -72,7 +72,7 @@ export default function PostDetailPage({ params }: PostDetailPageProps) {
     // Error state
     if (error || !post) {
         return (
-            <div className="mx-auto max-w-4xl px-4 py-12 sm:px-6 lg:px-8">
+            <div className="mx-auto w-full max-w-4xl px-4 py-12 sm:px-5 lg:px-6 xl:px-8">
                 <div className="rounded-xl border border-red-200 bg-red-50 p-8 text-center dark:border-red-800 dark:bg-red-900/20">
                     <svg 
                         className="mx-auto h-12 w-12 text-red-600 dark:text-red-400" 
@@ -130,7 +130,7 @@ export default function PostDetailPage({ params }: PostDetailPageProps) {
                 });
             }}
         >
-            <div className="mx-auto max-w-4xl px-4 py-8 sm:px-6 lg:px-8">
+            <div className="mx-auto w-full max-w-4xl px-4 py-8 sm:px-5 lg:px-6 xl:px-8">
                 {/* Back Button */}
                 <Link 
                     href="/posts"
